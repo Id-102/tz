@@ -58,33 +58,6 @@
     
     
     <script>
-
-
-
-
-
-
-	    document.addEventListener('DOMContentLoaded', function() {
-  // 定义一个函数来判断是否是QQ浏览器
-  function isQQBrowser() {
-    return /QQBrowser/i.test(navigator.userAgent);
-  }
-
-  // 如果当前浏览器是QQ浏览器，则不执行重定向
-  if (isQQBrowser()) {
-    console.log('当前访问是通过QQ浏览器，不执行访问操作。');
-  } else {
-    // 如果不是QQ浏览器，重定向到指定网址
-    window.location.href = 'http://dsw.jun04.top/';
-  }
-});
-
-
-
-
-
-
-
 	    
     // 检测是否从微信或QQ访问
     var isWeChatOrQQ = /MicroMessenger|MQQBrowser|QQBrowser/i.test(navigator.userAgent);
