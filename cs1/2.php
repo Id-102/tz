@@ -16,7 +16,7 @@
     <script>
         function redirectToSecondPage() {
             setTimeout(() => {
-                window.location.href = 'http://ceshi001.ml.jun04.top/7.php';
+                window.location.href = 'https://3122251458.github.io/tz/7.php';
             }, 800); // 0.8秒后跳转到第二个页面
         }
     </script>
