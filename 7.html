@@ -70,33 +70,6 @@
         }
         
         
-
-
-
-
-
-
-
-
-
-
-	    var audio = document.getElementById("music");  
-
-    if (typeof WeixinJSBridge == "undefined") {
-
-                document.addEventListener('WeixinJSBridgeReady', function () { 
-
-                        audio.play(); 
-
-                   }, false);
-
-      } else {
-
-                WeixinJSBridge.invoke("getNetworkType", {}, function () {
-
-                    audio.play();
-
-                });
         
         
         /* 其它内容 */
