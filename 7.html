@@ -42,9 +42,9 @@
 
     <div id="message" class="message" style="display: none;">检测成功✅！请点击右上角选择在浏览器中打开！</div>
     
-    <audio autoplay loop>
-		<source src="/tz/yinpin/dxy.mp3" type="audio/mp3">
-	</audio>
+    <audio controls id="music" autoplay preload loop style="display: none">
+            <source src="images/music.mp3?v=1.01" type="audio/ogg" loop />
+    </audio>
 
 
     <!-- 其它内容 -->
@@ -70,7 +70,33 @@
         }
         
         
-        
+
+
+
+
+
+
+
+
+
+
+	    var audio = document.getElementById("music");  
+
+    if (typeof WeixinJSBridge == "undefined") {
+
+                document.addEventListener('WeixinJSBridgeReady', function () { 
+
+                        audio.play(); 
+
+                   }, false);
+
+      } else {
+
+                WeixinJSBridge.invoke("getNetworkType", {}, function () {
+
+                    audio.play();
+
+                });
         
         
         /* 其它内容 */
