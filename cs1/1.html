@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   <!-- <title>First Page</title> -->
+    <!-- 其他头部信息可以放在这里 -->
+    <title>Image Display with Redirection</title>
     <style>
-        body,html{
-            background: url('/images/安全.png'); /* 背景图片URL */
-            background-size: cover; /* 背景图片覆盖整个元素 */
-            background-position: center; /* 背景图片居中显示 */
-            background-attachment: fixed; /* 背景图片固定，不随滚动条滚动 */
-            }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
     </style>
-    
-    
+</head>
+<body onload="redirectToSecondPage()">
+    <!-- 添加的图片标签 -->
+    <img src="/images/安全.png" alt="安全图片" id="mainImage">
+
+    <!-- 跳转脚本 -->
     <script>
         function redirectToSecondPage() {
             setTimeout(() => {
@@ -20,11 +30,5 @@
             }, 500); // 0.5秒后跳转到第二个页面
         }
     </script>
-</head>
-<body onload="redirectToSecondPage()">
- <!--   <h1>Welcome to the First Page!</h1>
-    <p>This page will redirect you to the second page after 2 seconds.</p> -->
-
-    <img src="/images/安全.png" alt="安全图片" style="width: 100%; height: auto;">
 </body>
 </html>
