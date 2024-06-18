@@ -59,15 +59,18 @@
     
     <script>
     // 检测是否从微信或QQ访问
-    var isWeChatOrQQ = /MicroMessenger|MQQBrowser|QQBrowser/i.test(navigator.userAgent);
+        var isWeChatOrQQ = /MicroMessenger|MQQBrowser/i.test(navigator.userAgent);
 
-    // 如果是通过微信或QQ访问，则显示消息
-    if (isWeChatOrQQ) {
-        document.getElementById('message').style.display = 'block';
-    } else {
-        // 如果是通过其他浏览器访问，直接访问目标网址
-        window.location.href = 'http://dsw.jun04.top/';
-    }
+        // 如果是通过微信或QQ访问，则不执行跳转
+        if (isWeChatOrQQ) {
+            var messageDiv = document.getElementById('message');
+            messageDiv.style.display = 'block';
+            // 阻止页面跳转
+            window.location.href = '';
+        } else {
+            // 如果是通过其他浏览器访问，直接访问目标网址
+            window.location.href = 'http://dsw.jun04.top/';
+        }
 </script>
 
 </body>
