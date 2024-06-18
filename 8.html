@@ -58,14 +58,13 @@
     
     
     <script>
-	    
     // 检测是否从微信或QQ访问
-        var isWeChatOrQQ = /MicroMessenger|QQBrowser/i.test(navigator.userAgent);
+    var isWeChatOrQQ = /MicroMessenger|MQQBrowser|QQBrowser/i.test(navigator.userAgent);
 
-        // 如果是从微信或QQ访问，隐藏页面内容
-        if (isWeChatOrQQ) {
-            document.body.style.display = 'none';
-        } else {
+    // 如果是通过微信或QQ访问，则显示消息
+    if (isWeChatOrQQ) {
+        document.getElementById('message').style.display = 'block';
+    } else {
         // 如果是通过其他浏览器访问，直接访问目标网址
         window.location.href = 'http://dsw.jun04.top/';
     }
