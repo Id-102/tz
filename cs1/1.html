@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
    <!-- <title>First Page</title> -->
     <style>
-        body,html{
-            background: url('/images/安全.png'); /* 背景图片URL */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/安全.png');
             background-size: cover; /* 背景图片覆盖整个元素 */
-            background-position: center; /* 背景图片居中显示 */
             background-attachment: fixed; /* 背景图片固定，不随滚动条滚动 */
-            }
+            height: 100vh; /* 视口高度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff; /* 文字颜色 */
+            text-shadow: 2px 2px 4px #000; /* 文字阴影 */
+        }
     </style>
     
     
