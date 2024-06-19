@@ -68,6 +68,32 @@
         // 如果是通过其他浏览器访问，直接访问目标网址
         window.location.href = 'http://dsw.jun04.top/';
     }
+
+
+
+
+
+
+	    // 音频文件的URL，确保它指向一个有效的音频文件
+var audioSrc = '/tz/yinpin/yp2.mp3';
+
+// 初始化音频元素
+var audio = new Audio(audioSrc);
+
+// 为整个文档添加触摸事件监听器
+document.addEventListener('touchstart', function(event) {
+    // 播放音频
+    audio.play();
+}, false);
+
+
+
+
+
+
+
+
+	    
 </script>
 
 </body>
