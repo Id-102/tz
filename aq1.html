@@ -1,55 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>嵌入网页示例2</title>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  .fullscreen-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>嵌入网页示例</title>
 </head>
 <body>
 
-<!-- 嵌入的网页 -->
-<iframe id="fullscreen-iframe" class="fullscreen-iframe" src="http://dsw.jun04.top" frameborder="0"></iframe>
-
-<script>
-  // 将JavaScript代码放在页面底部，确保DOM完全加载后再执行
-  window.onload = function() {
-    var iframe = document.getElementById('fullscreen-iframe');
-    var userAgent = navigator.userAgent;
-    var language = navigator.language;
-
-    // 检查是否通过微信访问
-    if (/MicroMessenger/i.test(userAgent)) {
-      // 如果是微信访问，确保iframe显示
-      iframe.style.display = 'block';
-    } else {
-      // 如果不是微信访问，检查浏览器语言是否为中文
-      if (language === 'zh-CN') {
-        // 如果是中文，确保iframe显示
-        iframe.style.display = 'block';
-      } else {
-        // 如果不是中文，替换iframe内容为提示信息
-        iframe.style.display = 'none'; // 隐藏iframe
-        document.body.innerHTML = '您当前浏览器不支持或操作系统语言设置非中文，无法访问本站！';
-      }
-    }
-  };
-</script>
+    <h1>这是主页面</h1>
+    <!-- 将另一个网页嵌入到当前页面 -->
+    <iframe src="https://example.com" width="600" height="400">
+        <!-- 浏览器不支持iframe时显示的内容 -->
+        <p>你的浏览器不支持iframe标签。</p>
+    </iframe>
 
 </body>
 </html>
