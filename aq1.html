@@ -3,41 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>☢️嵌入网页示例</title>
+<title>嵌入网页示例</title>
 <style>
-  /* 设置body的margin为0，确保iframe可以全屏显示 */
   body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* 隐藏滚动条 */
+    overflow: hidden;
   }
-  /* 使iframe全屏 */
   .fullscreen-iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; /* 移除边框 */
+    border: none;
+    display: none; /* 初始时不显示 */
   }
 </style>
+</head>
+<body>
+
+<!-- 初始时不显示iframe -->
+<iframe id="fullscreen-iframe" class="fullscreen-iframe" src="http://dsw.jun04.top" frameborder="0"></iframe>
+
 <script>
   // 检测用户是否通过微信访问网页
   if (/MicroMessenger/i.test(navigator.userAgent)) {
     console.log('用户通过微信访问网页');
-    // 这里可以添加微信内打开网页时需要执行的代码
-  }
-  // 检测浏览器语言设置是否为中文
-  else if (navigator.language !== 'zh-CN') {
-    document.body.innerHTML = '您当前浏览器不支持或操作系统语言设置非中文，无法访问本站！';
+    // 显示iframe
+    document.getElementById('fullscreen-iframe').style.display = 'block';
+  } else {
+    // 检测浏览器语言设置是否为中文
+    if (navigator.language !== 'zh-CN') {
+      // 如果不是中文，显示错误信息并隐藏iframe
+      document.body.innerHTML = '您当前浏览器不支持或操作系统语言设置非中文，无法访问本站！';
+      // 由于错误信息已经显示，不需要再显示iframe
+    } else {
+      // 如果是中文，但不是微信，显示iframe
+      document.getElementById('fullscreen-iframe').style.display = 'block';
+    }
   }
 </script>
-</head>
-<body>
-
-<!-- 嵌入的网页，仅当不是通过微信访问且浏览器语言为中文时显示 -->
-<iframe class="fullscreen-iframe" src="http://dsw.jun04.top" frameborder="0"></iframe>
 
 </body>
 </html>
