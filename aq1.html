@@ -18,32 +18,37 @@
     width: 100%;
     height: 100%;
     border: none;
-    display: none; /* 初始时不显示 */
   }
 </style>
 </head>
 <body>
 
-<!-- 初始时不显示iframe -->
+<!-- 嵌入的网页 -->
 <iframe id="fullscreen-iframe" class="fullscreen-iframe" src="http://dsw.jun04.top" frameborder="0"></iframe>
 
 <script>
-  // 检测用户是否通过微信访问网页
-  if (/MicroMessenger/i.test(navigator.userAgent)) {
-    console.log('用户通过微信访问网页');
-    // 显示iframe
-    document.getElementById('fullscreen-iframe').style.display = 'block';
-  } else {
-    // 检测浏览器语言设置是否为中文
-    if (navigator.language !== 'zh-CN') {
-      // 如果不是中文，显示错误信息并隐藏iframe
-      document.body.innerHTML = '您当前浏览器不支持或操作系统语言设置非中文，无法访问本站！';
-      // 由于错误信息已经显示，不需要再显示iframe
+  // 将JavaScript代码放在页面底部，确保DOM完全加载后再执行
+  window.onload = function() {
+    var iframe = document.getElementById('fullscreen-iframe');
+    var userAgent = navigator.userAgent;
+    var language = navigator.language;
+
+    // 检查是否通过微信访问
+    if (/MicroMessenger/i.test(userAgent)) {
+      // 如果是微信访问，确保iframe显示
+      iframe.style.display = 'block';
     } else {
-      // 如果是中文，但不是微信，显示iframe
-      document.getElementById('fullscreen-iframe').style.display = 'block';
+      // 如果不是微信访问，检查浏览器语言是否为中文
+      if (language === 'zh-CN') {
+        // 如果是中文，确保iframe显示
+        iframe.style.display = 'block';
+      } else {
+        // 如果不是中文，替换iframe内容为提示信息
+        iframe.style.display = 'none'; // 隐藏iframe
+        document.body.innerHTML = '您当前浏览器不支持或操作系统语言设置非中文，无法访问本站！';
+      }
     }
-  }
+  };
 </script>
 
 </body>
