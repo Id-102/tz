@@ -2,22 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✅</title>
+    <title>全屏嵌入网页示例</title>
     <style>
-        /* 确保html和body元素填充整个屏幕 */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* 防止滚动条出现 */
-        }
-
-        /* 让iframe覆盖整个屏幕 */
-        #fullScreenIframe {
-            position: absolute;
-            left: 0;
+        /* 使iframe全屏 */
+        .fullscreen-iframe {
+            position: fixed;
             top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             border: none; /* 移除边框 */
@@ -26,10 +19,10 @@
 </head>
 <body>
 
-    <!-- 使用iframe嵌入网页，并设置为全屏 -->
-    <iframe id="fullScreenIframe" src="http://dsw.jun04.top" name="embeddedWindow">
-        您的浏览器不支持iframe标签。
-    </iframe>
+<!-- 嵌入另一个网页的代码，并设置为全屏 -->
+<iframe class="fullscreen-iframe" src="https://example.com" title="嵌入的网页">
+  <p>你的浏览器不支持iframe标签。</p>
+</iframe>
 
 </body>
 </html>
